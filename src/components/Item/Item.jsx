@@ -2,7 +2,6 @@ import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup"
-import "./Item.css";
 import RemoveItem from "../RemoveItem/RemoveItem";
 
 function Item({ itemList, handleRemove }) {
@@ -24,7 +23,7 @@ function Item({ itemList, handleRemove }) {
             </Card.Text>
             <ButtonGroup>
               <Button variant="primary">Buy</Button>
-              <RemoveItem handleRemove={handleRemove} />
+              <RemoveItem handleRemove={handleRemove} id={item.id}/>
             </ButtonGroup>
           </Card.Body>
         </Card>

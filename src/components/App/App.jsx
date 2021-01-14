@@ -30,12 +30,11 @@ function App() {
     // DELETE ITEM
     const handleRemove = (event) => {
         event.preventDefault();
-        console.log('Deleting Item', id);
-        
         let id = event.target.id
+        
+        console.log('Deleting Item', id);
 
         axios.delete(`/list/${id}`).then((response) => {
-            console.log(response);
             getItems();
         }).catch((err) => {
             console.log(err);
