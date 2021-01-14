@@ -6,11 +6,20 @@ import ItemForm from '../Form/ItemForm.jsx';
 
 
 function App() {
+
+
+    const addItem = (newItem) => {
+        console.log(newItem);
+    }
+
+
     return (
         <div className="App">
             <Header />
             <main>
-                <ItemForm />
+                <ItemForm 
+                    addItem={addItem}
+                />
             </main>
         </div>
     );
