@@ -29,6 +29,7 @@ function ItemForm({ addItem }) {
             <Container>
                 <Col md={6}>
                     <h2>Add an Item</h2>
+                    <hr/>
                     <Form onSubmit={handleSubmit}>
                         <Form.Row>
                             <Col>

@@ -25,7 +25,7 @@ function App() {
     const handleRemove = (event) => {
         event.preventDefault();
         console.log('Deleting Item', id);
-        
+
         let id = event.target.id
 
         axios.delete(`/list/${id}`).then((response) => {
@@ -83,9 +83,12 @@ function App() {
         <div className="App">
             <Header />
             <main>
+                {/* spacer class is used in App.css */}
+                <div className={"spacer"}></div>
                 <ItemForm 
                     addItem={addItem}
                 />
+                <div className={"spacer"}></div> 
                 <ShoppingList 
                     clearShoppingList={clearShoppingList}
                     resetPurchasedItems={resetPurchasedItems}
