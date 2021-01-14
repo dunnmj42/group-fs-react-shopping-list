@@ -4,11 +4,17 @@ import ShoppingList from '../ShoppingList/ShoppingList'
 import {useState, useEffect} from 'react';
 import Header from '../Header/Header.jsx'
 import './App.css';
+import RemoveItem from '../RemoveItem/RemoveItem'
 
 
 function App() {
 
 
+    const handelRemove = (event) => {
+        event.preventDefault();
+        console.log('Delete clicked');
+    }
+    
 
     // DELETE REQUEST
     const removeItem = () => {
@@ -47,6 +53,11 @@ function App() {
                     itemList={itemList}
                 />
             </main>
+            <RemoveItem 
+            handelRemove={handelRemove}
+            
+            />
+            
         </div>
     );
 }

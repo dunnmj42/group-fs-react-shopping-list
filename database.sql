@@ -6,7 +6,7 @@
 CREATE TABLE shopping_list (
 	"id" SERIAL PRIMARY KEY,
 	"item_name" VARCHAR(80) NOT NULL,
-	"quantity" REAL,
+	"quantity" REAL NOT NULL,
 	"unit" VARCHAR(20),
 	"purchased" BOOLEAN DEFAULT FALSE
 );
