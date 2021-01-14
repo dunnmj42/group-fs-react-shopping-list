@@ -10,6 +10,11 @@ import ItemForm from '../Form/ItemForm.jsx';
 
 function App() {
 
+    const [itemList, setItemList] = useState([]);
+
+    useEffect(() => {
+        getItems();
+    }, [])
 
     const addItem = (newItem) => {
         console.log(newItem);
@@ -59,12 +64,6 @@ function App() {
         })
 
     }// end PUT
-
-    const [itemList, setItemList] = useState([]);
-
-    useEffect(() => {
-        getItems();
-    }, [])
 
     const getItems = () => {
         axios.get('/list')
