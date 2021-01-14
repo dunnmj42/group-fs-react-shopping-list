@@ -72,6 +72,7 @@ function App() {
       });
   }; // end PUT
 
+  // GET REQUEST for itemList
   const getItems = () => {
     axios
       .get("/list")
