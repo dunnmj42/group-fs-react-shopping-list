@@ -6,7 +6,7 @@ import axios from "axios";
 function RemoveItem({ handleRemove, id }) {
   return (
     <div>
-      <Button variant="danger" onClick={handleRemove} id={id}>
+      <Button variant="warning" onClick={handleRemove} id={id}>
         Delete
       </Button>
     </div>

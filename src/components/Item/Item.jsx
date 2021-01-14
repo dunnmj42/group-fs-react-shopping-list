@@ -22,7 +22,7 @@ function Item({ itemList, handleRemove }) {
               {item.quantity} {item.unit}
             </Card.Text>
             <ButtonGroup>
-              <Button variant="primary">Buy</Button>
+              <Button variant="secondary">Buy</Button>
               <RemoveItem handleRemove={handleRemove} id={item.id}/>
             </ButtonGroup>
           </Card.Body>
