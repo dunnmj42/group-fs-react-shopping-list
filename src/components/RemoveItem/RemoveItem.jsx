@@ -1,3 +1,5 @@
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 import React from 'react';
 import axios from 'axios';
 
@@ -33,8 +35,8 @@ function RemoveItem({
 
     return (
         <div>
-
-            <button onClick={handelRemove}>Delete</button>
+            
+            <Button onClick={handelRemove}>Delete</Button>
         </div>
     )
 
