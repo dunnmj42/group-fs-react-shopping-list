@@ -10,7 +10,7 @@ import RemoveItem from '../RemoveItem/RemoveItem'
 function App() {
 
 
-    const handelRemove = (event) => {
+    const handleRemove = (event) => {
         event.preventDefault();
         console.log('Delete clicked');
     }
@@ -51,12 +51,10 @@ function App() {
                 <ShoppingList 
                     removeItem={removeItem}
                     itemList={itemList}
+                    handleRemove={handleRemove}
                 />
             </main>
-            <RemoveItem 
-            handelRemove={handelRemove}
             
-            />
             
         </div>
     );

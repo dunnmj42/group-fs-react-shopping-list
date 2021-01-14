@@ -1,8 +1,9 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import './Item.css'
+import RemoveItem from '../RemoveItem/RemoveItem'
 
-function Item({itemList}) {
+function Item({itemList, handleRemove}) {
     
     return (
         <div>
@@ -14,7 +15,10 @@ function Item({itemList}) {
                         {item.quantity} {item.unit}
                         </Card.Text>
                         <Button variant="primary">Buy</Button>
-                        <Button variant="primary">Remove</Button>
+                        <RemoveItem 
+            handleRemove={handleRemove}
+            
+            />
                     </Card.Body>
                 </Card>
             ))}

@@ -27,6 +27,7 @@ function ShoppingList(props) {
     <div>
       <Item
         itemList={props.itemList}
+        handleRemove={props.handleRemove}
       />
     </div>
   </div>

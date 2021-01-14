@@ -19,7 +19,7 @@ import axios from 'axios';
 
 
 function RemoveItem({
-    handelRemove
+    handleRemove
 }) {
     console.log('Deleting Item');
 
@@ -34,7 +34,7 @@ function RemoveItem({
     return (
         <div>
 
-            <button onClick={handelRemove}>Delete</button>
+            <button onClick={handleRemove}>Delete</button>
         </div>
     )
 
