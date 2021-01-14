@@ -22,6 +22,7 @@ function App() {
         })
     }
 
+    // DELETE ITEM
     const handleRemove = (event) => {
         event.preventDefault();
         console.log('Deleting Item', id);
@@ -39,7 +40,7 @@ function App() {
     // DELETE REQUEST
     const clearShoppingList = () => {
         console.log('delete clicked');
-        axios.delete(`/list`).then((response) => {
+        axios.delete(`/list/all`).then((response) => {
             console.log(response);
             getItems();
         }).catch((err) => {
