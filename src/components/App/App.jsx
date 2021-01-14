@@ -1,12 +1,26 @@
 import React from 'react';
+import axios from 'axios';
+import ShoppingList from '../ShoppingList/ShoppingList'
 import {useState, useEffect} from 'react';
 import Header from '../Header/Header.jsx'
 import Item from '../Item/Item'
-import axios from 'axios';
 import './App.css';
 
 
 function App() {
+
+
+
+    // DELETE REQUEST
+    const removeItem = () => {
+        console.log('delete clicked');
+        let id = 3;
+        axios.delete(`/list/${id}`).then((response) => {
+            console.log(response);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {
@@ -29,6 +43,9 @@ function App() {
         <div className="App">
             <Header />
             <main>
+                <ShoppingList 
+                    removeItem={removeItem}
+                />
                 <Item 
                     itemList={itemList}
                 />
