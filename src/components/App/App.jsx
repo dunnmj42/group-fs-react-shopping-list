@@ -83,7 +83,6 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <ShoppingList/>
                 <ItemForm 
                     addItem={addItem}
                 />
