@@ -3,7 +3,6 @@ import axios from 'axios';
 import ShoppingList from '../ShoppingList/ShoppingList'
 import {useState, useEffect} from 'react';
 import Header from '../Header/Header.jsx'
-import Item from '../Item/Item'
 import './App.css';
 
 
@@ -45,8 +44,6 @@ function App() {
             <main>
                 <ShoppingList 
                     removeItem={removeItem}
-                />
-                <Item 
                     itemList={itemList}
                 />
             </main>
