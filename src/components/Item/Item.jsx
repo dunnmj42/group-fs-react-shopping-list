@@ -5,6 +5,7 @@ import "./Item.css";
 import RemoveItem from "../RemoveItem/RemoveItem";
 
 function Item({ itemList, handleRemove }) {
+
   return (
     <CardColumns>
       {itemList.map((item) => (

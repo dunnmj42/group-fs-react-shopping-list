@@ -18,7 +18,7 @@ router.post('/', (req,res) => {
     });
 });
 
-// DELETE
+// DELETE All
 router.delete("/", (req, res) => {
  
   console.log("Delete entire shopping basket");
@@ -79,12 +79,12 @@ router.get('/', (req, res) => {
 });
 
 
-// Delete
+// DELETE ITEM
 router.delete('/:id', (req, res) => {
     let id = req.params.id
     console.log('Deleting item number', id);
     
-    let queryText = `SELECT * FROM shopping_list
+    let queryText = `DELETE FROM shopping_list
                     WHERE "id" = $1`
 
     pool.query(queryText, [id]).then((results) => {
