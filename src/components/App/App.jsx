@@ -9,16 +9,10 @@ import RemoveItem from '../RemoveItem/RemoveItem'
 
 function App() {
 
-
-
-   
-
     const handleRemove = (event) => {
         event.preventDefault();
         console.log('Delete clicked');
     }
-    
-
 
     // DELETE REQUEST
     const clearShoppingList = () => {
@@ -68,7 +62,7 @@ function App() {
                 <ShoppingList 
                     clearShoppingList={clearShoppingList}
                     resetPurchasedItems={resetPurchasedItems}
-                    removeItem={removeItem}
+                    RemoveItem={RemoveItem}
                     itemList={itemList}
                     handleRemove={handleRemove}
                 />
