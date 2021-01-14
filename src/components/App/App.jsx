@@ -19,6 +19,7 @@ function App() {
         console.log('delete clicked');
         axios.delete(`/list`).then((response) => {
             console.log(response);
+            getItems();
         }).catch((err) => {
             console.log(err);
         })
@@ -30,6 +31,7 @@ function App() {
         console.log('reset clicked');
         axios.put(`/list`).then((response) => {
             console.log(response);
+            getItems();
         }).catch((err) => {
             console.log(err);
         })
