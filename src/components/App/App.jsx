@@ -2,16 +2,15 @@ import React from 'react';
 
 import Header from '../Header/Header.jsx';
 import './App.css';
-import Form from '../Form/Form.jsx';
+import ItemForm from '../Form/ItemForm.jsx';
 
 
 function App() {
     return (
         <div className="App">
             <Header />
-            <Form />
             <main>
-                <p>Under Construction...</p>
+                <ItemForm />
             </main>
         </div>
     );
