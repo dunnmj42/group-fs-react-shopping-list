@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import Item from '../Item/Item'
 
-const element = <FontAwesomeIcon icon={faTrashAlt} />
-
-
+const trashIcon = <FontAwesomeIcon icon={faTrashAlt} />
 
 
 function ShoppingList(props) {
+
 
   return (
 
@@ -17,11 +16,20 @@ function ShoppingList(props) {
     <h2>Shopping List</h2>
     <hr/>
     <div>
-      <Button variant="danger" size="sm">{element}
-        
+      <Button 
+      variant="danger" 
+      size="sm"
+      onClick={props.resetPurchasedItems}
+      >
+        Reset Purchased Status
+
       </Button>{' '}
-      <Button variant="danger" size="sm">
-        Clear
+      <Button 
+        variant="danger" 
+        size="sm" 
+        onClick={props.clearShoppingList}
+      >
+        {trashIcon}
       </Button>
     </div>
     <div>

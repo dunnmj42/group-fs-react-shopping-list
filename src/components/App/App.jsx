@@ -10,21 +10,38 @@ import RemoveItem from '../RemoveItem/RemoveItem'
 function App() {
 
 
+
+   
+
     const handleRemove = (event) => {
         event.preventDefault();
         console.log('Delete clicked');
     }
     
 
+
     // DELETE REQUEST
-    const removeItem = () => {
+    const clearShoppingList = () => {
         console.log('delete clicked');
-        let id = 3;
-        axios.delete(`/list/${id}`).then((response) => {
+        axios.delete(`/list`).then((response) => {
             console.log(response);
         }).catch((err) => {
             console.log(err);
         })
+    }// end DELETE
+
+
+    // PUT REQUEST
+    const resetPurchasedItems = () => {
+        console.log('reset clicked');
+        axios.put(`/list`).then((response) => {
+            console.log(response);
+        }).catch((err) => {
+            console.log(err);
+        })
+
+    }// end PUT
+    
     }
     const [itemList, setItemList] = useState([]);
 
@@ -44,11 +61,14 @@ function App() {
     };
 
 
+
     return (
         <div className="App">
             <Header />
             <main>
                 <ShoppingList 
+                    clearShoppingList={clearShoppingList}
+                    resetPurchasedItems={resetPurchasedItems}
                     removeItem={removeItem}
                     itemList={itemList}
                     handleRemove={handleRemove}
