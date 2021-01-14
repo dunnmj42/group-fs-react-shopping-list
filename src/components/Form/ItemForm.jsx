@@ -17,9 +17,9 @@ function ItemForm({ addItem }) {
             purchased: false
         };
         addItem(newItem);
-        setItemName('')
-        setItemQuantity('')
-        setItemUnit('')
+        setItemName('');
+        setItemQuantity('');
+        setItemUnit('');
     }
 
     return (
