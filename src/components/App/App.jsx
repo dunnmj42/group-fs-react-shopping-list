@@ -42,7 +42,6 @@ function App() {
 
     }// end PUT
     
-    }
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {
