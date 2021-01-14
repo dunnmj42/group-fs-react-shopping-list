@@ -17,7 +17,7 @@ function Item({ itemList, handleRemove }) {
                         <Button variant="primary">Buy</Button>
                         <RemoveItem
                             handleRemove={handleRemove}
-
+                            id={item.id}
                         />
                     </Card.Body>
                 </Card>

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ShoppingList from '../ShoppingList/ShoppingList'
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Header from '../Header/Header.jsx'
 import './App.css';
 import RemoveItem from '../RemoveItem/RemoveItem'
@@ -11,13 +11,22 @@ function App() {
 
 
 
-   
+
 
     const handleRemove = (event) => {
         event.preventDefault();
-        console.log('Delete clicked');
+        console.log('Deleting Item', id);
+        
+        let id = event.target.id
+
+        axios.delete(`/list/${id}`).then((response) => {
+            console.log(response);
+            getItems();
+        }).catch((err) => {
+            console.log(err);
+        })
     }
-    
+
 
 
     // DELETE REQUEST
@@ -41,7 +50,7 @@ function App() {
         })
 
     }// end PUT
-    
+
     const [itemList, setItemList] = useState([]);
 
     useEffect(() => {
@@ -50,13 +59,13 @@ function App() {
 
     const getItems = () => {
         axios.get('/list')
-          .then(response => {
-            setItemList(response.data)
-            console.log(response.data);
-          })
-          .catch(err => {
-            console.log(err);
-          })
+            .then(response => {
+                setItemList(response.data)
+                console.log(response.data);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     };
 
 
@@ -65,16 +74,16 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <ShoppingList 
+                <ShoppingList
                     clearShoppingList={clearShoppingList}
                     resetPurchasedItems={resetPurchasedItems}
-                    removeItem={removeItem}
+                    RemoveItem={RemoveItem}
                     itemList={itemList}
                     handleRemove={handleRemove}
                 />
             </main>
-            
-            
+
+
         </div>
     );
 }
