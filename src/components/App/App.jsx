@@ -28,16 +28,16 @@ function App() {
       });
   };
 
-  // DELETE ITEM
   const handleRemove = (event) => {
     event.preventDefault();
-    let id = event.target.id;
-
     console.log("Deleting Item", id);
+
+    let id = event.target.id;
 
     axios
       .delete(`/list/${id}`)
       .then((response) => {
+        console.log(response);
         getItems();
       })
       .catch((err) => {
@@ -49,7 +49,7 @@ function App() {
   const clearShoppingList = () => {
     console.log("delete clicked");
     axios
-      .delete(`/list/all`)
+      .delete(`/list`)
       .then((response) => {
         console.log(response);
         getItems();
@@ -72,7 +72,6 @@ function App() {
         console.log(err);
       });
   }; // end PUT
-
 
   const markPurchasedItems = (event) => {
 
@@ -111,7 +110,10 @@ function App() {
     <div className="App">
       <Header />
       <main>
+        {/* spacer class is used in App.css */}
+        <div className={"spacer"}></div>
         <ItemForm addItem={addItem} />
+        <div className={"spacer"}></div>
         <ShoppingList
           clearShoppingList={clearShoppingList}
           resetPurchasedItems={resetPurchasedItems}
