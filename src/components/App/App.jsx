@@ -1,14 +1,18 @@
-import React from 'react';
-import axios from 'axios';
-import ShoppingList from '../ShoppingList/ShoppingList'
-import { useState, useEffect } from 'react';
-import Header from '../Header/Header.jsx'
-import './App.css';
-import RemoveItem from '../RemoveItem/RemoveItem'
-import ItemForm from '../Form/ItemForm.jsx';
-
+import React from "react";
+import axios from "axios";
+import ShoppingList from "../ShoppingList/ShoppingList";
+import { useState, useEffect } from "react";
+import Header from "../Header/Header.jsx";
+import "./App.css";
+import RemoveItem from "../RemoveItem/RemoveItem";
+import ItemForm from "../Form/ItemForm.jsx";
 
 function App() {
+  const [itemList, setItemList] = useState([]);
+
+  useEffect(() => {
+    getItems();
+  }, []);
 
 
     const addItem = (newItem) => {
@@ -101,6 +105,7 @@ function App() {
 
         </div>
     );
+
 }
 
 export default App;

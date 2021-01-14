@@ -1,12 +1,12 @@
-import React from 'react';
-import './Header.css';
+import React from "react";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 function Header() {
-    return (
-        <header className="banner-header">
-            <h1>My Shopping List</h1>
-        </header>
-    );
+  return (
+    <Jumbotron>
+      <h1>My Shopping List</h1>
+    </Jumbotron>
+  );
 }
 
 export default Header;
