@@ -15,7 +15,7 @@ function App() {
         console.log(newItem);
         axios.post('/list', newItem)
         .then(response => {
-            // clear inputs
+            getItems();
         }).catch(err => {
             alert('Error adding item');
             console.log(err);
