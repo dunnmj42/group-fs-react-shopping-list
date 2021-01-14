@@ -28,7 +28,7 @@ function ItemForm({ addItem }) {
         <div>
             <Container>
                 <Col md={6}>
-                    <h1>Add an Item</h1>
+                    <h2>Add an Item</h2>
                     <Form onSubmit={handleSubmit}>
                         <Form.Row>
                             <Col>
