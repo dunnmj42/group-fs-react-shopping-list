@@ -9,8 +9,8 @@ function App() {
     const removeItem =()=> {
         console.log('delete clicked');
 
-        let id = 1;
-        axios.delete(`/list/1`).then((response) => {
+        let id = 3;
+        axios.delete(`/list/${id}`).then((response) => {
             console.log(response);
         }).catch((err) => {
             console.log(err);
