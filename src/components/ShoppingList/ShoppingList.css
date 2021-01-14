@@ -1,0 +1,19 @@
+
+.container {
+  flex-flow: column wrap;
+}
+
+.buttons {
+
+  margin-bottom: 20px !important;
+}
+
+.item {
+  flex-basis: auto; /* default auto */
+}
+
+.card {
+  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
+}
