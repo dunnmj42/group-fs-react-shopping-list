@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 function ItemForm({ addItem }) {
 
     const [itemName, setItemName] = useState('');
-    const [itemQuantity, setItemQuantity] = useState(0);
+    const [itemQuantity, setItemQuantity] = useState('');
     const [itemUnit, setItemUnit] = useState('');
 
     const handleSubmit = (event) => {
@@ -13,10 +13,13 @@ function ItemForm({ addItem }) {
         let newItem = {
             item_name: itemName,
             quantity: itemQuantity,
-            nit: itemUnit,
+            unit: itemUnit,
             purchased: false
         };
         addItem(newItem);
+        setItemName('')
+        setItemQuantity('')
+        setItemUnit('')
     }
 
     return (
@@ -27,7 +30,7 @@ function ItemForm({ addItem }) {
                     <Form.Label>Item: </Form.Label>
                     <Form.Control
                         as="input"
-                        // value={itemName.item_name}
+                        value={itemName}
                         onChange={(event) => setItemName(event.target.value)}
                     ></Form.Control>
                 </Form.Group>
@@ -37,7 +40,7 @@ function ItemForm({ addItem }) {
                     <Form.Control
                         as="input"
                         type="number"
-                        // value={itemQuantity.quantity}
+                        value={itemQuantity}
                         onChange={(event) => setItemQuantity(event.target.value)}
                     ></Form.Control>
                 </Form.Group>
@@ -46,7 +49,7 @@ function ItemForm({ addItem }) {
                     <Form.Label>Unit: </Form.Label>
                     <Form.Control 
                         as="input"
-                        // value={itemUnit.unit}
+                        value={itemUnit}
                         onChange={(event) => setItemUnit(event.target.value)}
                     ></Form.Control>
                 </Form.Group>
