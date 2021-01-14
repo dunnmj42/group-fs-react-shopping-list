@@ -23,20 +23,6 @@ function ItemForm({ addItem }) {
     setItemUnit("");
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    let newItem = {
-      item_name: itemName,
-      quantity: itemQuantity,
-      unit: itemUnit,
-      purchased: false,
-    };
-    addItem(newItem);
-    setItemName("");
-    setItemQuantity("");
-    setItemUnit("");
-  };
-
   return (
     <div>
       <Container>
