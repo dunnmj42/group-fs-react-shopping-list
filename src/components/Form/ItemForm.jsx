@@ -10,7 +10,12 @@ function ItemForm({ addItem }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        let newItem = {...itemName, ...itemQuantity, ...itemUnit, purchased: false};
+        let newItem = {
+            item_name: itemName,
+            quantity: itemQuantity,
+            nit: itemUnit,
+            purchased: false
+        };
         addItem(newItem);
     }
 
@@ -22,7 +27,8 @@ function ItemForm({ addItem }) {
                     <Form.Label>Item: </Form.Label>
                     <Form.Control
                         as="input"
-                        onChange={(event) => setItemName({item_name: event.target.value})}
+                        // value={itemName.item_name}
+                        onChange={(event) => setItemName(event.target.value)}
                     ></Form.Control>
                 </Form.Group>
 
@@ -31,7 +37,8 @@ function ItemForm({ addItem }) {
                     <Form.Control
                         as="input"
                         type="number"
-                        onChange={(event) => setItemQuantity({quantity: event.target.value})}
+                        // value={itemQuantity.quantity}
+                        onChange={(event) => setItemQuantity(event.target.value)}
                     ></Form.Control>
                 </Form.Group>
 
@@ -39,7 +46,8 @@ function ItemForm({ addItem }) {
                     <Form.Label>Unit: </Form.Label>
                     <Form.Control 
                         as="input"
-                        onChange={(event) => setItemUnit({unit: event.target.value})}
+                        // value={itemUnit.unit}
+                        onChange={(event) => setItemUnit(event.target.value)}
                     ></Form.Control>
                 </Form.Group>
                 <Button variant="primary" type="submit">Save</Button>
