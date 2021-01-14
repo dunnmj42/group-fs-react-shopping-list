@@ -2,13 +2,14 @@ import {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import Item from '../Item/Item'
 
 const element = <FontAwesomeIcon icon={faTrashAlt} />
 
 
 
 
-function ShoppingList({removeItem}) {
+function ShoppingList(props) {
 
   return (
 
@@ -23,9 +24,10 @@ function ShoppingList({removeItem}) {
         Clear
       </Button>
     </div>
-    {/* Container for item cards */}
     <div>
-      <h1>Cards go here</h1>
+      <Item
+        itemList={props.itemList}
+      />
     </div>
   </div>
 
