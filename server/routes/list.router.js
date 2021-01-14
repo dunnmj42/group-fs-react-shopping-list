@@ -63,14 +63,14 @@ router.put("/reset", (req, res) => {
 }); // end PUT
 
 
-router.put('/:id', (req, res) => {
+router.put('/buy/:id', (req, res) => {
   let id = req.params.id
   console.log('Marking purchased item number', id);
   
   let queryText = `
   UPDATE "shopping_list"
   SET "purchased" = true
-  WHERE "purchased" = false;`;
+  WHERE "id" = $1;`;
 
   pool.query(queryText, [id]).then((results) => {
       console.log(results.rows);

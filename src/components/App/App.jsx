@@ -81,7 +81,7 @@ function App() {
     console.log("Marking purchased Item", id);
 
     axios
-      .put(`/list/${id}`)
+      .put(`/list/buy/${id}`)
       .then((response) => {
         getItems();
       })
