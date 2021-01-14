@@ -3,51 +3,50 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 // TODO - Add routes here...
+
 // DELETE
-// router.delete("/:id", (req, res) => {
-//   // target id of thing being deleted
-//   let id = req.params.id;
-//   console.log("Delete route called with id of: ", id);
+router.delete("/", (req, res) => {
+ 
+  console.log("Delete entire shopping basket");
 
-//   // sql to delete item from database
-//   const queryText = `DELETE FROM "todo" WHERE "id" = $1;`;
+  // sql to delete item from database
+  const queryText = `DELETE FROM "shopping_list";`;
 
-//   // sending sql code to postico
-//   pool
-//     .query(queryText, [id])
-//     .then((result) => {
-//       res.sendStatus(204);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       res.sendStatus(500);
-//     });
-// }); // end DELETE
+  // sending sql code to postico
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.sendStatus(204);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
+}); // end DELETE
 
 
 // // PUT
-// router.put("/:id", (req, res) => {
-//   // id of todo to change status
-//   const id = req.params.id;
-//   // changed status info from client
-//   const completeStatus = req.body.complete;
+router.put("/", (req, res) => {
+ 
+  console.log("Reset all completed shopping items");
 
-//   // query to SQL
-//   const queryText = `
-//     UPDATE "todo" SET "complete" = $1 WHERE "id" = $2;
-//   `;
+  // sql to update items from database
+  const queryText = `
+  UPDATE "shopping_list"
+  SET "purchased" = false
+  WHERE "purchased" = true;`;
 
-//   pool
-//     .query(queryText, [completeStatus, id])
-//     .then((result) => {
-//       console.log(result);
-//       res.sendStatus(200);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       res.sendStatus(500);
-//     });
-// });// end PUT
+  // sending sql code to postico
+  pool
+    .query(queryText)
+    .then((result) => {
+      res.sendStatus(204);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+    });
+}); // end PUT
 
 
 

@@ -8,17 +8,27 @@ import './App.css';
 function App() {
 
 
-
+   
     // DELETE REQUEST
-    const removeItem = () => {
+    const clearShoppingList = () => {
         console.log('delete clicked');
-        let id = 3;
-        axios.delete(`/list/${id}`).then((response) => {
+        axios.delete(`/list`).then((response) => {
             console.log(response);
         }).catch((err) => {
             console.log(err);
         })
-    }
+    }// end DELETE
+
+
+    // PUT REQUEST
+    const resetPurchasedItems = () => {
+        console.log('reset clicked');
+        axios.put(`/list`).then((response) => {
+            console.log(response);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }// end PUT
 
 
     return (
@@ -26,7 +36,8 @@ function App() {
             <Header />
             <main>
                 <ShoppingList 
-                    removeItem={removeItem}
+                    clearShoppingList={clearShoppingList}
+                    resetPurchasedItems={resetPurchasedItems}
                 />
             </main>
         </div>
