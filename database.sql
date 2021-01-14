@@ -5,9 +5,9 @@
 
 CREATE TABLE shopping_list (
 	"id" SERIAL PRIMARY KEY,
-	"item_name" VARCHAR(255) NOT NULL,
+	"item_name" VARCHAR(80) NOT NULL,
 	"quantity" REAL,
-	"unit" VARCHAR(255),
+	"unit" VARCHAR(20),
 	"purchased" BOOLEAN DEFAULT FALSE
 );
 
