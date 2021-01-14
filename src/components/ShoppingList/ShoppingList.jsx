@@ -2,14 +2,12 @@ import {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import Item from '../Item/Item'
 
 const trashIcon = <FontAwesomeIcon icon={faTrashAlt} />
 
 
-
-
-function ShoppingList({clearShoppingList, resetPurchasedItems}) {
-
+function ShoppingList(props) {
 
 
   return (
@@ -21,7 +19,7 @@ function ShoppingList({clearShoppingList, resetPurchasedItems}) {
       <Button 
       variant="danger" 
       size="sm"
-      onClick={resetPurchasedItems}
+      onClick={props.resetPurchasedItems}
       >
         Reset Purchased Status
 
@@ -29,15 +27,16 @@ function ShoppingList({clearShoppingList, resetPurchasedItems}) {
       <Button 
         variant="danger" 
         size="sm" 
-        onClick={clearShoppingList}
+        onClick={props.clearShoppingList}
       >
         {trashIcon}
-
       </Button>
     </div>
-    {/* Container for item cards */}
     <div>
-      <h1>Cards go here</h1>
+      <Item
+        itemList={props.itemList}
+        handleRemove={props.handleRemove}
+      />
     </div>
   </div>
 
