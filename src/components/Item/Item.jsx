@@ -3,8 +3,8 @@ import CardColumns from "react-bootstrap/CardColumns";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup"
 import RemoveItem from "../RemoveItem/RemoveItem";
-
-function Item({ itemList, handleRemove }) {
+import BuyItem from "../BuyItem/BuyItem";
+function Item({ itemList, handleRemove, markPurchasedItems }) {
 
   return (
     <CardColumns>
@@ -22,7 +22,7 @@ function Item({ itemList, handleRemove }) {
               {item.quantity} {item.unit}
             </Card.Text>
             <ButtonGroup>
-              <Button variant="primary">Buy</Button>
+              <BuyItem markPurchasedItems={markPurchasedItems} id={item.id}/>
               <RemoveItem handleRemove={handleRemove} id={item.id}/>
             </ButtonGroup>
           </Card.Body>
