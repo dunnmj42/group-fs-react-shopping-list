@@ -17,9 +17,9 @@ function App() {
         axios.get('/list')
           .then(response => {
             setItemList(response.data)
+            console.log(response.data);
           })
           .catch(err => {
-            alert('error getting items');
             console.log(err);
           })
     };
@@ -29,7 +29,9 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <Item />
+                <Item 
+                    itemList={itemList}
+                />
             </main>
         </div>
     );

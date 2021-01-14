@@ -2,21 +2,23 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import './Item.css'
 
-function Item(props) {
+function Item({itemList}) {
     
     return (
         <div>
-        <Card>
-            <Card.Body>
-                <Card.Title>Item Name</Card.Title>
-                <Card.Text>
-                Item Quantity and Unit
-                </Card.Text>
-                <Button variant="primary">Buy</Button>
-                <Button variant="primary">Remove</Button>
-            </Card.Body>
-        </Card>
-    </div>
+            {itemList.map(item => (
+                <Card key={item.id}>
+                    <Card.Body>
+                        <Card.Title>{item.item_name}</Card.Title>
+                        <Card.Text>
+                        {item.quantity} {item.unit}
+                        </Card.Text>
+                        <Button variant="primary">Buy</Button>
+                        <Button variant="primary">Remove</Button>
+                    </Card.Body>
+                </Card>
+            ))}
+        </div>
     )
 }
 
