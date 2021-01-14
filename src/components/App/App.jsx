@@ -5,13 +5,22 @@ import { useState, useEffect } from 'react';
 import Header from '../Header/Header.jsx'
 import './App.css';
 import RemoveItem from '../RemoveItem/RemoveItem'
+import ItemForm from '../Form/ItemForm.jsx';
 
 
 function App() {
 
 
-
-
+    const addItem = (newItem) => {
+        console.log(newItem);
+        axios.post('/list', newItem)
+        .then(response => {
+            getItems();
+        }).catch(err => {
+            alert('Error adding item');
+            console.log(err);
+        })
+    }
 
     const handleRemove = (event) => {
         event.preventDefault();
@@ -27,13 +36,12 @@ function App() {
         })
     }
 
-
-
     // DELETE REQUEST
     const clearShoppingList = () => {
         console.log('delete clicked');
         axios.delete(`/list`).then((response) => {
             console.log(response);
+            getItems();
         }).catch((err) => {
             console.log(err);
         })
@@ -45,6 +53,7 @@ function App() {
         console.log('reset clicked');
         axios.put(`/list`).then((response) => {
             console.log(response);
+            getItems();
         }).catch((err) => {
             console.log(err);
         })
@@ -74,7 +83,11 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <ShoppingList
+                <ShoppingList/>
+                <ItemForm 
+                    addItem={addItem}
+                />
+                <ShoppingList 
                     clearShoppingList={clearShoppingList}
                     resetPurchasedItems={resetPurchasedItems}
                     RemoveItem={RemoveItem}
