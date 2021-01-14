@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import ShoppingList from '../ShoppingList/ShoppingList'
+import {useState, useEffect} from 'react';
 import Header from '../Header/Header.jsx'
+import Item from '../Item/Item'
 import './App.css';
 
 
@@ -19,6 +21,22 @@ function App() {
             console.log(err);
         })
     }
+    const [itemList, setItemList] = useState([]);
+
+    useEffect(() => {
+        getItems();
+    }, [])
+
+    const getItems = () => {
+        axios.get('/list')
+          .then(response => {
+            setItemList(response.data)
+            console.log(response.data);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+    };
 
 
     return (
@@ -27,6 +45,9 @@ function App() {
             <main>
                 <ShoppingList 
                     removeItem={removeItem}
+                />
+                <Item 
+                    itemList={itemList}
                 />
             </main>
         </div>
