@@ -6,6 +6,7 @@ import Header from "../Header/Header.jsx";
 import "./App.css";
 import RemoveItem from "../RemoveItem/RemoveItem";
 import ItemForm from "../Form/ItemForm.jsx";
+import BuyItem from "../BuyItem/BuyItem";
 
 function App() {
   const [itemList, setItemList] = useState([]);
@@ -62,7 +63,7 @@ function App() {
   const resetPurchasedItems = () => {
     console.log("reset clicked");
     axios
-      .put(`/list`)
+      .put(`/list/reset`)
       .then((response) => {
         console.log(response);
         getItems();
@@ -72,6 +73,27 @@ function App() {
       });
   }; // end PUT
 
+  const markPurchasedItems = (event) => {
+
+    event.preventDefault();
+    let id = event.target.id;
+
+    console.log("Marking purchased Item", id);
+
+    axios
+      .put(`/list/buy/${id}`)
+      .then((response) => {
+        getItems();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  
+
+
+  // GET REQUEST for itemList
   const getItems = () => {
     axios
       .get("/list")
@@ -98,6 +120,8 @@ function App() {
           RemoveItem={RemoveItem}
           itemList={itemList}
           handleRemove={handleRemove}
+          BuyItem={BuyItem}
+          markPurchasedItems={markPurchasedItems}
         />
       </main>
     </div>

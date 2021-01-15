@@ -40,7 +40,7 @@ router.delete("/all", (req, res) => {
 
 
 // // PUT
-router.put("/", (req, res) => {
+router.put("/reset", (req, res) => {
  
   console.log("Reset all completed shopping items");
 
@@ -61,6 +61,22 @@ router.put("/", (req, res) => {
       res.sendStatus(500);
     });
 }); // end PUT
+
+
+router.put('/buy/:id', (req, res) => {
+  let id = req.params.id
+  console.log('Marking purchased item number', id);
+  
+  let queryText = `
+  UPDATE "shopping_list"
+  SET "purchased" = true
+  WHERE "id" = $1;`;
+
+  pool.query(queryText, [id]).then((results) => {
+      console.log(results.rows);
+      res.sendStatus(204)
+  })
+})
 
 
 

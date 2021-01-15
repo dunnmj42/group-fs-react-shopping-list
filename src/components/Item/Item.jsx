@@ -1,17 +1,11 @@
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup"
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import RemoveItem from "../RemoveItem/RemoveItem";
+import BuyItem from "../BuyItem/BuyItem";
 
-function purchased(params) {
-    
-}
-
-
-
-function Item({ itemList, handleRemove }) {
-
+function Item({ itemList, handleRemove, markPurchasedItems }) {
   return (
     <CardColumns>
       {itemList.map((item) => (
@@ -27,10 +21,16 @@ function Item({ itemList, handleRemove }) {
             <Card.Text>
               {item.quantity} {item.unit}
             </Card.Text>
-            <ButtonGroup>
-              <Button variant="primary">Buy</Button>
-              <RemoveItem handleRemove={handleRemove} id={item.id}/>
-            </ButtonGroup>
+            {item.purchased ? (
+              <div>
+                <p>Purchased</p>
+              </div>
+            ) : (
+              <ButtonGroup>
+                <BuyItem markPurchasedItems={markPurchasedItems} id={item.id} />
+                <RemoveItem handleRemove={handleRemove} id={item.id} />
+              </ButtonGroup>
+            )}
           </Card.Body>
         </Card>
       ))}

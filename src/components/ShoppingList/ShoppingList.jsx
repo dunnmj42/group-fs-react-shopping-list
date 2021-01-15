@@ -32,7 +32,11 @@ function ShoppingList(props) {
           </Button>
         </div>
         <div>
-          <Item itemList={props.itemList} handleRemove={props.handleRemove} />
+          <Item 
+          itemList={props.itemList} 
+          handleRemove={props.handleRemove} 
+          markPurchasedItems={props.markPurchasedItems} 
+          />
         </div>
       </Container>
     </div>
