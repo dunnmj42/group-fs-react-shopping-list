@@ -21,10 +21,15 @@ function Item({ itemList, handleRemove, markPurchasedItems }) {
             <Card.Text>
               {item.quantity} {item.unit}
             </Card.Text>
-            <ButtonGroup>
-              <BuyItem markPurchasedItems={markPurchasedItems} id={item.id}/>
-              <RemoveItem handleRemove={handleRemove} id={item.id}/>
-            </ButtonGroup>
+              {item.purchased ?
+                <div>
+                  <p>Purchased</p>
+                </div> :
+                <ButtonGroup>
+                  <BuyItem markPurchasedItems={markPurchasedItems} id={item.id}/>
+                  <RemoveItem handleRemove={handleRemove} id={item.id}/>
+                </ButtonGroup> 
+              }
           </Card.Body>
         </Card>
       ))}
