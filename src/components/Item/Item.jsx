@@ -9,8 +9,7 @@ function Item({ itemList, handleRemove, markPurchasedItems }) {
   return (
     <CardColumns>
       {itemList.map((item) => (
-        <>
-          {item.purchased ? (
+          item.purchased ? (
             <Card
               bg="secondary"
               style={{ width: "18rem", textAlign: "center" }}
@@ -50,8 +49,7 @@ function Item({ itemList, handleRemove, markPurchasedItems }) {
                 </ButtonGroup>
               </Card.Body>
             </Card>
-          )}
-        </>
+          )
       ))}
     </CardColumns>
   );
