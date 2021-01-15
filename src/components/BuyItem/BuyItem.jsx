@@ -8,7 +8,11 @@ const trashIcon = <FontAwesomeIcon icon={faTrashAlt} />;
 function buyItem({ markPurchasedItems, id }) {
   return (
     <div>
-      <Button variant="primary" onClick={markPurchasedItems} id={id}>
+      <Button 
+        variant="primary" 
+        onClick={markPurchasedItems} 
+        id={id}
+        style={{margin: '3px'}}>
         Buy
       </Button>
     </div>
