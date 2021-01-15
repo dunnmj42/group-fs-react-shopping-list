@@ -49,7 +49,7 @@ function App() {
   const clearShoppingList = () => {
     console.log("delete clicked");
     axios
-      .delete(`/list`)
+      .delete(`/list/clear`)
       .then((response) => {
         console.log(response);
         getItems();
@@ -89,9 +89,6 @@ function App() {
         console.log(err);
       });
   };
-
-  
-
 
   // GET REQUEST for itemList
   const getItems = () => {

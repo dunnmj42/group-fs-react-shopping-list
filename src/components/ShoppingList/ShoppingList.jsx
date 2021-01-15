@@ -28,7 +28,7 @@ function ShoppingList(props) {
             style={{ margin: "10px" }}
             onClick={props.clearShoppingList}
           >
-            {trashIcon}
+            {trashIcon} Clear List
           </Button>
         </div>
         <div>

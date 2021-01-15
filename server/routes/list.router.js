@@ -19,7 +19,7 @@ router.post('/', (req,res) => {
 });
 
 // DELETE All
-router.delete("/all", (req, res) => {
+router.delete("/clear", (req, res) => {
  
   console.log("Delete entire shopping basket");
 

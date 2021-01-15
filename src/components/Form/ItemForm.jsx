@@ -33,7 +33,7 @@ function ItemForm({ addItem }) {
             <Form.Row>
               <Col>
                 <Form.Group>
-                  <Form.Label>Item: </Form.Label>
+                  <Form.Label>*Item: </Form.Label>
                   <Form.Control
                     as="input"
                     value={itemName}
@@ -45,7 +45,7 @@ function ItemForm({ addItem }) {
             <Form.Row>
               <Col>
                 <Form.Group>
-                  <Form.Label>Quantity: </Form.Label>
+                  <Form.Label>*Quantity: </Form.Label>
                   <Form.Control
                     as="input"
                     type="number"
