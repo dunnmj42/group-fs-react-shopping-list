@@ -9,30 +9,49 @@ function Item({ itemList, handleRemove, markPurchasedItems }) {
   return (
     <CardColumns>
       {itemList.map((item) => (
-        <Card
-          bg="light"
-          style={{ width: "18rem", textAlign: "center" }}
-          border="secondary"
-          className="p-3"
-          key={item.id}
-        >
-          <Card.Body>
-            <Card.Title>{item.item_name}</Card.Title>
-            <Card.Text>
-              {item.quantity} {item.unit}
-            </Card.Text>
-            {item.purchased ? (
-              <div>
-                <p>Purchased</p>
-              </div>
-            ) : (
-              <ButtonGroup>
-                <BuyItem markPurchasedItems={markPurchasedItems} id={item.id} />
-                <RemoveItem handleRemove={handleRemove} id={item.id} />
-              </ButtonGroup>
-            )}
-          </Card.Body>
-        </Card>
+        <>
+          {item.purchased ? (
+            <Card
+              bg="secondary"
+              style={{ width: "18rem", textAlign: "center" }}
+              border="secondary"
+              className="p-3"
+              key={item.id}
+            >
+              <Card.Body>
+                <Card.Title>{item.item_name}</Card.Title>
+                <Card.Text>
+                  {item.quantity} {item.unit}
+                </Card.Text>
+                <div>
+                  <p>Purchased</p>
+                </div>
+              </Card.Body>
+            </Card>
+          ) : (
+            <Card
+              bg="light"
+              style={{ width: "18rem", textAlign: "center" }}
+              border="secondary"
+              className="p-3"
+              key={item.id}
+            >
+              <Card.Body>
+                <Card.Title>{item.item_name}</Card.Title>
+                <Card.Text>
+                  {item.quantity} {item.unit}
+                </Card.Text>
+                <ButtonGroup>
+                  <BuyItem
+                    markPurchasedItems={markPurchasedItems}
+                    id={item.id}
+                  />
+                  <RemoveItem handleRemove={handleRemove} id={item.id} />
+                </ButtonGroup>
+              </Card.Body>
+            </Card>
+          )}
+        </>
       ))}
     </CardColumns>
   );
