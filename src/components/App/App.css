@@ -1,6 +1,8 @@
 main {
   width: 90%;
   margin: auto;
+  background-color: rgba(106, 15, 15, 0.214);
+  border-radius: 10px;
 }
 
 .spacer {

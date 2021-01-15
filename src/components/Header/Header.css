@@ -1,0 +1,12 @@
+.header {
+    background-image: linear-gradient(#fff5f5, #ffb1b1);
+    /* background-color: #fcb9b9 !important; */
+    border-bottom: 5px solid rgb(82, 82, 82) !important;
+    text-align: center;
+}
+
+.jumbo-text {
+    color: rgb(0, 0, 0);
+    position: relative;
+    right: 30%;
+}
