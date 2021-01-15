@@ -4,6 +4,12 @@ import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup"
 import RemoveItem from "../RemoveItem/RemoveItem";
 
+function purchased(params) {
+    
+}
+
+
+
 function Item({ itemList, handleRemove }) {
 
   return (
